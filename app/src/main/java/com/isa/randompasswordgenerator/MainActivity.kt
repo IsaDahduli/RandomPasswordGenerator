@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.material.textfield.TextInputLayout
 import java.security.SecureRandom
 
@@ -17,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         tilPassword = findViewById(R.id.til_password)
         etPass = findViewById(R.id.et_pass) // Initialize etPass here
@@ -25,7 +27,8 @@ class MainActivity : AppCompatActivity() {
 
         btnGenerate.setOnClickListener(View.OnClickListener { generatePassword() })
 
-        btnClear.setOnClickListener(View.OnClickListener { etPass.setText("") })
+        btnClear.setOnClickListener(View.OnClickListener { etPass.setText("")
+        })
     }
 
     private fun generatePassword() {
